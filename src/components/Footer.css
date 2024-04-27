@@ -1,0 +1,37 @@
+/* footer.css */
+
+.footer {
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  .footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .footer-text {
+    margin-right: 10px;
+  }
+  
+  .footer-link,
+  .footer-link:hover,
+  .footer-link:visited {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .footer-icon {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5em;
+  }
+  
