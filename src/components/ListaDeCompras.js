@@ -6,7 +6,7 @@ import './ListaDeCompras.css';
 const ListaDeCompras = () => {
   const [items, setItems] = useState([]);
   const [itemName, setItemName] = useState('');
-  const [itemValue, setItemValue] = useState(0);
+  const [itemValue, setItemValue] = useState('');
   const [editItemId, setEditItemId] = useState(null);
 
   const handleAddItem = () => {
