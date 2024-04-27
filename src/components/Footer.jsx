@@ -9,9 +9,9 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-content">
-        <p className="footer-text">Feito por {' '}
+        <p className="footer-text">Desenvolvido por {' '}
           <a href="https://github.com/rodrigocsdev" target="_blank" rel="noopener noreferrer" className="footer-link">
-            RodrigoCSDev
+            Rodrigo Santos
           </a>
         </p>
         <a href="https://github.com/rodrigocsdev" target="_blank" rel="noopener noreferrer" className="footer-icon">
