@@ -68,15 +68,15 @@ const ListaDeCompras = () => {
           value={itemValue}
           onChange={(e) => setItemValue(e.target.value)}
         />
-        <button onClick={handleAddItem}>{editItemId !== null ? 'Atualizar' : 'Adicionar'}</button>
+        <button className="add-button" onClick={handleAddItem}>{editItemId !== null ? 'Atualizar' : 'Adicionar'}</button>
       </div>
       <ul className="items-list">
         {items.map((item) => (
           <li key={item.id}>
             <span>{item.name}</span>
             <span>R${item.value.toFixed(2)}</span>
-            <button className="button-prod-list" onClick={() => handleEditItem(item.id)}>Editar</button>
-            <button  onClick={() => handleRemoveItem(item.id)}>Remover</button>
+            <button className="edit-button" onClick={() => handleEditItem(item.id)}>Editar</button>
+            <button className="remove-button" onClick={() => handleRemoveItem(item.id)}>Remover</button>
           </li>
         ))}
       </ul>
