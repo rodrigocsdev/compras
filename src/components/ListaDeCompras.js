@@ -64,20 +64,19 @@ const ListaDeCompras = () => {
         />
         <input
           type="number"
-          inputMode="numeric" // Definindo o inputMode como "numeric" para o teclado numérico no iOS
           placeholder="Valor"
           value={itemValue}
           onChange={(e) => setItemValue(e.target.value)}
         />
-        <button className="add-button" onClick={handleAddItem}>{editItemId !== null ? 'Atualizar' : 'Adicionar'}</button>
+        <button onClick={handleAddItem}>{editItemId !== null ? 'Atualizar' : 'Adicionar'}</button>
       </div>
       <ul className="items-list">
         {items.map((item) => (
           <li key={item.id}>
             <span>{item.name}</span>
             <span>R${item.value.toFixed(2)}</span>
-            <button className="edit-button" onClick={() => handleEditItem(item.id)}>Editar</button>
-            <button className="remove-button" onClick={() => handleRemoveItem(item.id)}>Remover</button>
+            <button className="button-prod-list" onClick={() => handleEditItem(item.id)}>Editar</button>
+            <button  onClick={() => handleRemoveItem(item.id)}>Remover</button>
           </li>
         ))}
       </ul>
