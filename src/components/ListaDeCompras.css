@@ -1,0 +1,96 @@
+/* src/components/ListaDeCompras.css */
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-container {
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap; /* Adicionamos wrap para que os elementos quebrem para a próxima linha em telas menores */
+  }
+  
+  .form-container input[type='text'],
+  .form-container input[type='number'] {
+    flex: 1;
+    padding: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .form-container button {
+    background-color: #3f51b5;
+    color: white;
+    cursor: pointer;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .items-list {
+    padding: 0;    
+  }
+    
+  .items-list li {
+    background-color: #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .items-list li:last-child {
+    margin-bottom: 0;
+  }
+  
+  .total {
+    text-align: right;
+    font-weight: bold;
+  }
+  
+  /* Adicionamos uma regra de mídia para telas menores */
+  @media screen and (max-width: 600px) {
+    .form-container input[type='text'],
+    .form-container input[type='number'] {
+      width: 100%; /* Definimos a largura como 100% para ocupar toda a largura disponível */
+      margin-right: 0; /* Removemos a margem direita para que os elementos se alinhem corretamente */
+    }
+  
+    .form-container button {
+      width: 100%; /* Definimos a largura do botão como 100% para ocupar toda a largura disponível */
+      margin-right: 0; /* Removemos a margem direita para que o botão se alinhe corretamente */
+      margin-top: 10px; /* Adicionamos uma margem superior para separar o botão dos campos de entrada */
+    }
+  }
+  .add-button,
+.edit-button,
+.remove-button {
+  background-color: #3f51b5;
+  color: white;
+  cursor: pointer;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+.edit-button{
+  background-color: #3f51b5;
+}
+.remove-button {
+  background-color: #f44336;
+}
