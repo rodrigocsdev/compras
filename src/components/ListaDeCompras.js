@@ -64,6 +64,7 @@ const ListaDeCompras = () => {
         />
         <input
           type="number"
+          inputMode="numeric" // Definindo o inputMode como "numeric" para o teclado numérico no iOS
           placeholder="Valor"
           value={itemValue}
           onChange={(e) => setItemValue(e.target.value)}
