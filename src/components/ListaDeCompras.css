@@ -38,6 +38,7 @@
 
 .form-container input[type='text'],
 .form-container input[type='number'] {
+  text-align: center;
   flex: 1;
   padding: 10px;
   margin-right: 10px;
@@ -63,6 +64,7 @@
 }
 
 .items-list li {  
+  text-align: center;
   background-color: #f7f7f7;   
   padding: 15px;
   margin-bottom: 15px;
@@ -86,7 +88,8 @@
 
 
 .total {
-  text-align: right;
+  color: #337ab7;
+  text-align: center;
   font-weight: bold;
   font-size: 18px;
   margin-top: 15px;
@@ -133,6 +136,7 @@
 
 .form-container input[type='text'],
 .form-container input[type='number'] {
+    
     padding: 15px;
     margin-right: 20px;
     margin-bottom: 20px;

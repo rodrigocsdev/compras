@@ -16,7 +16,7 @@ const ListaDeCompras = () => {
       if (editItemId !== null) {
         // Se estamos editando um item, atualizamos o item existente na lista
         const updatedItems = items.map((item) => {
-          if (item.id === editItemId) {
+          if (item.id === editItemId) {            
             return { ...item, name: itemName, value: parseFloat(itemValue) };
           }
           return item;
