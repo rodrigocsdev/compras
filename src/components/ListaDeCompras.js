@@ -1,29 +1,36 @@
 // src/components/ListaDeCompras.js
 
 import React, { useState } from 'react';
-import './ListaDeCompras.css';
+import './ListaDeCompras.css'
 
 const ListaDeCompras = () => {
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState(JSON.parse(localStorage.getItem('listaDeCompras')) || []);
   const [itemName, setItemName] = useState('');
   const [itemValue, setItemValue] = useState(0);
   const [editItemId, setEditItemId] = useState(null);
 
   const handleAddItem = () => {
     if (itemName && itemValue) {
-      if (editItemId !== null) {
+      if (editItemId!== null) {
         // Se estamos editando um item, atualizamos o item existente na lista
         const updatedItems = items.map(item => {
           if (item.id === editItemId) {
-            return { ...item, name: itemName, value: parseFloat(itemValue) };
+            return {...item, name: itemName, value: parseFloat(itemValue) };
           }
           return item;
         });
         setItems(updatedItems);
         setEditItemId(null); // Resetar o ID de edição
+
+        // Salvar a lista de compras no localStorage
+        localStorage.setItem('listaDeCompras', JSON.stringify(updatedItems));
       } else {
         // Caso contrário, adicionamos um novo item à lista
         setItems([...items, { id: Date.now(), name: itemName, value: parseFloat(itemValue) }]);
+
+        // Salvar a lista de compras no localStorage
+        const newItems = [...items, { id: Date.now(), name: itemName, value: parseFloat(itemValue) }];
+        localStorage.setItem('listaDeCompras', JSON.stringify(newItems));
       }
       // Limpar campos de entrada
       setItemName('');
@@ -32,7 +39,9 @@ const ListaDeCompras = () => {
   };
 
   const handleRemoveItem = (id) => {
-    setItems(items.filter(item => item.id !== id));
+    setItems(items.filter(item => item.id!== id));
+    // Salvar a lista de compras no localStorage
+    localStorage.setItem('listaDeCompras', JSON.stringify(items.filter(item => item.id!== id)));
   };
 
   const handleEditItem = (id) => {
@@ -68,7 +77,7 @@ const ListaDeCompras = () => {
           value={itemValue}
           onChange={(e) => setItemValue(e.target.value)}
         />
-        <button className="add-button" onClick={handleAddItem}>{editItemId !== null ? 'Atualizar' : 'Adicionar'}</button>
+        <button className="add-button" onClick={handleAddItem}>{editItemId!== null? 'Atualizar' : 'Adicionar'}</button>
       </div>
       <ul className="items-list">
         {items.map((item) => (
