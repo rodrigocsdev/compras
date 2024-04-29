@@ -16,7 +16,7 @@ const ListaDeCompras = () => {
       if (editItemId !== null) {
         // Se estamos editando um item, atualizamos o item existente na lista
         const updatedItems = items.map((item) => {
-          if (item.id === editItemId) {            
+          if (item.id === editItemId) {
             return { ...item, name: itemName, value: parseFloat(itemValue) };
           }
           return item;
@@ -88,7 +88,7 @@ const ListaDeCompras = () => {
           placeholder="Nome do item"
           value={itemName}
           onChange={(e) => setItemName(e.target.value)}
-          ref={inputRef} 
+          ref={inputRef}
           autoFocus={false} // remova o autoFocus aqui
         />
         <input
@@ -106,18 +106,20 @@ const ListaDeCompras = () => {
           <li key={item.id}>
             <span>{item.name}</span>
             <span>R${item.value.toFixed(2)}</span>
-            <button
-              className="edit-button"
-              onClick={() => handleEditItem(item.id)}
-            >
-              Editar
-            </button>
-            <button
-              className="remove-button"
-              onClick={() => handleRemoveItem(item.id)}
-            >
-              Remover
-            </button>
+            <div className="button-container">
+              <button
+                className="edit-button"
+                onClick={() => handleEditItem(item.id)}
+              >
+                Editar
+              </button>            
+              <button
+                className="remove-button"
+                onClick={() => handleRemoveItem(item.id)}
+              >
+                Remover
+              </button>
+            </div>
           </li>
         ))}
       </ul>

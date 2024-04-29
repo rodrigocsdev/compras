@@ -116,10 +116,17 @@
 
 .edit-button {
   background-color: #337ab7;
+  margin-bottom: 5px;
 }
 
 .remove-button {
   background-color: #e74c3c;
+  margin-top: 5px;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
 }
 
 /* Media query for larger screens */
