@@ -34,7 +34,7 @@ const ListaDeCompras = () => {
       }
       // Limpar campos de entrada
       setItemName('');
-      setItemValue(0);
+      setItemValue('');
     }
   };
 
