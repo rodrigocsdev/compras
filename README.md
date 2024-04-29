@@ -8,4 +8,4 @@ Projeto de site onde voce insere os produtos e o valor deles quando faz compra n
 
 ### Disponibilidade
 
-Localhost ou em plataforma de hospedagem com suporte ao react
+https://compras-bg0.pages.dev/
