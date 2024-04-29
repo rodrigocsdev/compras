@@ -88,7 +88,7 @@ const ListaDeCompras = () => {
           placeholder="Nome do item"
           value={itemName}
           onChange={(e) => setItemName(e.target.value)}
-          ref={inputRef} // adicione essa linha
+          ref={inputRef} 
           autoFocus={false} // remova o autoFocus aqui
         />
         <input
