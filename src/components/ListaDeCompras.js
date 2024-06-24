@@ -9,15 +9,21 @@ const ListaDeCompras = () => {
   );
   const [itemName, setItemName] = useState("");
   const [itemValue, setItemValue] = useState("");
+  const [itemQuantity, setItemQuantity] = useState("");
   const [editItemId, setEditItemId] = useState(null);
 
   const handleAddItem = () => {
-    if (itemName && itemValue) {
+    if (itemName && itemValue && itemQuantity) {
       if (editItemId !== null) {
         // Se estamos editando um item, atualizamos o item existente na lista
         const updatedItems = items.map((item) => {
           if (item.id === editItemId) {
-            return { ...item, name: itemName, value: parseFloat(itemValue) };
+            return {
+              ...item,
+              name: itemName,
+              value: parseFloat(itemValue),
+              quantity: parseInt(itemQuantity),
+            };
           }
           return item;
         });
@@ -30,19 +36,30 @@ const ListaDeCompras = () => {
         // Caso contrário, adicionamos um novo item à lista
         setItems([
           ...items,
-          { id: Date.now(), name: itemName, value: parseFloat(itemValue) },
+          {
+            id: Date.now(),
+            name: itemName,
+            value: parseFloat(itemValue),
+            quantity: parseInt(itemQuantity),
+          },
         ]);
 
         // Salvar a lista de compras no localStorage
         const newItems = [
           ...items,
-          { id: Date.now(), name: itemName, value: parseFloat(itemValue) },
+          {
+            id: Date.now(),
+            name: itemName,
+            value: parseFloat(itemValue),
+            quantity: parseInt(itemQuantity),
+          },
         ];
         localStorage.setItem("listaDeCompras", JSON.stringify(newItems));
       }
       // Limpar campos de entrada
       setItemName("");
       setItemValue("");
+      setItemQuantity("");
       inputRef.current.focus(); // adicione essa linha
     }
   };
@@ -61,7 +78,8 @@ const ListaDeCompras = () => {
     if (itemToEdit) {
       // Preencher os campos de entrada com os valores do item a ser editado
       setItemName(itemToEdit.name);
-      setItemValue(itemToEdit.value);
+      setItemValue(itemToEdit.value.toString());
+      setItemQuantity(itemToEdit.quantity.toString());
       // Definir o ID do item sendo editado
       setEditItemId(id);
       window.scrollTo({
@@ -72,7 +90,7 @@ const ListaDeCompras = () => {
   };
 
   const calculateTotal = () => {
-    return items.reduce((total, item) => total + item.value, 0);
+    return items.reduce((total, item) => total + item.value * item.quantity, 0);
   };
 
   const inputRef = React.createRef();
@@ -97,6 +115,12 @@ const ListaDeCompras = () => {
           value={itemValue}
           onChange={(e) => setItemValue(e.target.value)}
         />
+        <input
+          type="number"
+          placeholder="Quantidade"
+          value={itemQuantity}
+          onChange={(e) => setItemQuantity(e.target.value)}
+        />
         <button className="add-button" onClick={handleAddItem}>
           {editItemId !== null ? "Atualizar" : "Adicionar"}
         </button>
@@ -105,14 +129,14 @@ const ListaDeCompras = () => {
         {items.map((item) => (
           <li key={item.id}>
             <span>{item.name}</span>
-            <span>R${item.value.toFixed(2)}</span>
+            <span>R${(item.value * item.quantity).toFixed(2)}</span>
             <div className="button-container">
               <button
                 className="edit-button"
                 onClick={() => handleEditItem(item.id)}
               >
                 Editar
-              </button>            
+              </button>
               <button
                 className="remove-button"
                 onClick={() => handleRemoveItem(item.id)}
