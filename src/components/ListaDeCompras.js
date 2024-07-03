@@ -129,7 +129,8 @@ const ListaDeCompras = () => {
         {items.map((item) => (
           <li key={item.id}>
             <span>{item.name}</span>
-            <span>{item.quantity}</span>
+            <span>R${item.value.toFixed(2)}</span>
+            <span> X {item.quantity}</span>
             <span>R${(item.value * item.quantity).toFixed(2)}</span>
             <div className="button-container">
               <button
