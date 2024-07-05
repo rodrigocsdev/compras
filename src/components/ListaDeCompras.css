@@ -8,24 +8,21 @@
 }
 
 .container {
-  max-width: 100%;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 30px; /* updated border-radius */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  max-width: auto;
+  margin: auto;
+  padding: auto;
 }
 
-.container h1{
-  color: #337ab7;  
+.container h1 {
+  color: #337ab7;
 }
 
 .header {
   text-align: center;
-  margin-bottom: 20px;
+
   font-size: 18px;
   font-weight: bold;
-  border-radius: 20px; /* updated border-radius */
+
   padding: 10px; /* added padding to make the border-radius visible */
 }
 
@@ -37,9 +34,9 @@
   justify-content: center;
 }
 
-.form-container input[type='text'],
-.search-container input[type='text'],
-.form-container input[type='number'] {
+.form-container input[type="text"],
+.search-container input[type="text"],
+.form-container input[type="number"] {
   text-align: center;
   flex: 1;
   padding: 10px;
@@ -61,7 +58,9 @@
 }
 
 .container-table {
-  max-height: calc(100vh - 120px); /* ajuste conforme necessário para deixar espaço para o .container-total e footer */
+  max-height: calc(
+    100vh - 100px - 60px - 60px - 60px - 60px - 60px - 60px - 60px
+  ); /* ajuste conforme necessário para deixar espaço para o .container-total e footer */
   overflow-y: auto;
 }
 
@@ -70,7 +69,8 @@
   border-collapse: collapse; /* Para juntar as bordas das células */
 }
 
-.items-table th, .items-table td {
+.items-table th,
+.items-table td {
   padding: 8px; /* Adiciona um espaçamento interno de 8px */
   text-align: left; /* Alinha o texto à esquerda */
   border-bottom: 1px solid #ddd; /* Adiciona uma linha de separação entre as linhas */
@@ -80,15 +80,14 @@
   margin-right: 5px; /* Adiciona um espaçamento entre os botões de ação */
 }
 
-
 .items-list {
   padding: 0;
   list-style: none;
 }
 
-.items-list li {  
+.items-list li {
   text-align: center;
-  background-color: #f7f7f7;   
+  background-color: #f7f7f7;
   padding: 15px;
   margin-bottom: 15px;
   border-radius: 20px; /* updated border-radius */
@@ -102,11 +101,11 @@
 }
 
 .items-list span {
-  max-width: 200px;   
-  display: inline-block;  
+  max-width: 200px;
+  display: inline-block;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;  
+  white-space: nowrap;
 }
 
 .container-total {
@@ -163,34 +162,33 @@
 
 /* Media query for larger screens */
 @media screen and (min-width: 800px) {
-.container {
+  .container {
     max-width: 800px;
     margin: 40px auto;
     padding: 30px;
   }
 
-.header {
+  .header {
     font-size: 24px;
   }
 
-.form-container input[type='text'],
-.form-container input[type='number'] {
-    
+  .form-container input[type="text"],
+  .form-container input[type="number"] {
     padding: 15px;
     margin-right: 20px;
     margin-bottom: 20px;
   }
 
-.form-container button {
+  .form-container button {
     padding: 15px 30px;
   }
 
-.items-list li {
+  .items-list li {
     padding: 20px;
     margin-bottom: 20px;
   }
 
-.total {    
+  .total {
     font-size: 24px;
     margin-top: 20px;
   }
