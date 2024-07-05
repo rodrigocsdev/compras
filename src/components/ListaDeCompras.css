@@ -61,8 +61,8 @@
 }
 
 .container-table {
-  max-height: flex; /* Defina a altura máxima desejada para a tabela */
-  overflow-y: flex; /* Adiciona uma barra de rolagem vertical quando necessário */
+  max-height: calc(100vh - 120px); /* ajuste conforme necessário para deixar espaço para o .container-total e footer */
+  overflow-y: auto;
 }
 
 .items-table {
@@ -111,7 +111,7 @@
 
 .container-total {
   position: fixed;
-  bottom: 0;
+  bottom: 60px; /* altura do footer */
   left: 0;
   width: 100%;
   background-color: #fff;
