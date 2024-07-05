@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./ListaDeCompras.css";
 
 const ListaDeCompras = () => {
@@ -12,9 +12,18 @@ const ListaDeCompras = () => {
   const [sortField, setSortField] = useState(null);
   const [sortDirection, setSortDirection] = useState("asc");
 
+  const containerRef = useRef(null);
+
   useEffect(() => {
     localStorage.setItem("listaDeCompras", JSON.stringify(items));
   }, [items]);
+
+  useEffect(() => {
+    if (editItemId !== null && containerRef.current) {
+      // Scroll to the top of the container when editing an item
+      containerRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, [editItemId]);
 
   const handleAddItem = () => {
     if (itemName && itemValue && itemQuantity) {
@@ -92,7 +101,7 @@ const ListaDeCompras = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container" ref={containerRef}>
       <div className="header">
         <h1>Lista de Compras</h1>
       </div>
@@ -119,7 +128,7 @@ const ListaDeCompras = () => {
           {editItemId !== null ? "Atualizar" : "Adicionar"}
         </button>
       </div>
-      <div className="form-container">
+      <div className="search-container">
         <input
           type="text"
           placeholder="Pesquisar por nome"

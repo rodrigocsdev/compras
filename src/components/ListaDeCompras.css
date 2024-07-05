@@ -29,7 +29,8 @@
   padding: 10px; /* added padding to make the border-radius visible */
 }
 
-.form-container {
+.form-container,
+.search-container {
   margin-bottom: 20px;
   display: flex;
   flex-wrap: wrap;
@@ -37,6 +38,7 @@
 }
 
 .form-container input[type='text'],
+.search-container input[type='text'],
 .form-container input[type='number'] {
   text-align: center;
   flex: 1;
@@ -174,7 +176,7 @@
     margin-bottom: 20px;
   }
 
-.total {
+.total {    
     font-size: 24px;
     margin-top: 20px;
   }
