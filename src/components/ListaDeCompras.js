@@ -136,6 +136,7 @@ const ListaDeCompras = () => {
           onChange={handleSearch}
         />
       </div>
+      <div className="container-table">
       <table className="items-table">
         <thead>
           <tr>
@@ -173,7 +174,10 @@ const ListaDeCompras = () => {
           ))}
         </tbody>
       </table>
+      </div>
+      <div className="container-total">
       <div className="total">Total: R${calculateTotal().toFixed(2)}</div>
+      </div>
     </div>
   );
 };

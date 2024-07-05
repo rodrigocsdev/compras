@@ -60,6 +60,11 @@
   font-size: 16px;
 }
 
+.container-table {
+  max-height: flex; /* Defina a altura máxima desejada para a tabela */
+  overflow-y: flex; /* Adiciona uma barra de rolagem vertical quando necessário */
+}
+
 .items-table {
   width: 100%;
   border-collapse: collapse; /* Para juntar as bordas das células */
@@ -104,6 +109,15 @@
   white-space: nowrap;  
 }
 
+.container-total {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  padding: 10px 20px;
+  border-top: 1px solid #ddd;
+}
 
 .total {
   color: #337ab7;
