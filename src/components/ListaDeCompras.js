@@ -119,7 +119,7 @@ const ListaDeCompras = () => {
           {editItemId !== null ? "Atualizar" : "Adicionar"}
         </button>
       </div>
-      <div className="search-container">
+      <div className="form-container">
         <input
           type="text"
           placeholder="Pesquisar por nome"
