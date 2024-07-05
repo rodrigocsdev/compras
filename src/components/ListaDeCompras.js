@@ -125,30 +125,36 @@ const ListaDeCompras = () => {
           {editItemId !== null ? "Atualizar" : "Adicionar"}
         </button>
       </div>
-      <ul className="items-list">
-        {items.map((item) => (
-          <li key={item.id}>
-            <span>{item.name}</span>
-            <span>R${item.value.toFixed(2)}</span>
-            <span> X {item.quantity}</span>
-            <span>R${(item.value * item.quantity).toFixed(2)}</span>
-            <div className="button-container">
-              <button
-                className="edit-button"
-                onClick={() => handleEditItem(item.id)}
-              >
-                Editar
-              </button>
-              <button
-                className="remove-button"
-                onClick={() => handleRemoveItem(item.id)}
-              >
-                Remover
-              </button>
-            </div>
-          </li>
-        ))}
-      </ul>
+      <table className="items-table">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Valor</th>
+      <th>Qtd</th>
+      <th>Total</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    {items.map((item) => (
+      <tr key={item.id}>
+        <td> {item.name} </td>
+        <td> R${item.value.toFixed(2)} </td>
+        <td> {item.quantity} </td>
+        <td> R${(item.value * item.quantity).toFixed(2)} </td>
+        <td>
+          <button className="edit-button" onClick={() => handleEditItem(item.id)}>
+            Editar
+          </button>
+          <button className="remove-button" onClick={() => handleRemoveItem(item.id)}>
+            Remover
+          </button>
+        </td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
       <div className="total">Total: R${calculateTotal().toFixed(2)}</div>
     </div>
   );

@@ -58,6 +58,22 @@
   font-size: 16px;
 }
 
+.items-table {
+  width: 100%;
+  border-collapse: collapse; /* Para juntar as bordas das células */
+}
+
+.items-table th, .items-table td {
+  padding: 8px; /* Adiciona um espaçamento interno de 8px */
+  text-align: left; /* Alinha o texto à esquerda */
+  border-bottom: 1px solid #ddd; /* Adiciona uma linha de separação entre as linhas */
+}
+
+.item-actions button {
+  margin-right: 5px; /* Adiciona um espaçamento entre os botões de ação */
+}
+
+
 .items-list {
   padding: 0;
   list-style: none;
